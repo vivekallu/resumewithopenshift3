@@ -1,21 +1,22 @@
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.views.generic import TemplateView
 
-from welcome.views import index, health
-from openshiftapp import views as views
+#from welcome.views import index, health
+from openshiftapp.views import *
 urlpatterns = [
     # Examples:
     # url(r'^$', 'project.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^$', index),
-    url(r'^health$', health),
-    url(r'^admin/', include(admin.site.urls)),
+#    url(r'^$', index),
+#    url(r'^health$', health),
+#    url(r'^admin/', include(admin.site.urls)),
 
-     url(r'^$', 'views.home', name='home'),
-    url(r'^sendemail$', 'views.sendemail'),
-    url(r'^quantcast$', 'views.quantcast'),
-    url(r'^zynga$', 'views.zynga'),
+     url(r'^$',  home),
+    url(r'^sendemail$', sendemail),
+    url(r'^quantcast$', quantcast),
+    url(r'^zynga$', zynga),
     #url(r'^choice$', 'views.choice'),
     url(r'^paypal$', TemplateView.as_view(template_name="home/paypal.html")),
     # url(r'^blog/', include('blog.urls')),
