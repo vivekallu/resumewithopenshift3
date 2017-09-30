@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'debug_toolbar',
     'welcome',
+    'openshiftapp',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -105,8 +106,28 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
-
+ON_OPENSHIFT = False
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_PASSWORD = 'ldpku!23'
+EMAIL_HOST_USER = 'allu.vivek7@gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.6/howto/static-files/
+if not ON_OPENSHIFT:
+    STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, '..', 'static'),
+    )
+    STATIC_ROOT = os.path.join(BASE_DIR, '..', 'static_root1')
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, '..', 'static')
+STATIC_URL = '/static/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

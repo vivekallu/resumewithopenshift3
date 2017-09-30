@@ -1,18 +1,10 @@
-from django.conf.urls import include, url
+from django.conf.urls import patterns, include, url
+from django.views.generic import TemplateView
 from django.contrib import admin
-
-from welcome.views import index, health
-from openshiftapp import views as views
-urlpatterns = [
+admin.autodiscover()
+urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'project.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-
-    url(r'^$', index),
-    url(r'^health$', health),
-    url(r'^admin/', include(admin.site.urls)),
-
-     url(r'^$', 'views.home', name='home'),
+    url(r'^$', 'views.home', name='home'),
     url(r'^sendemail$', 'views.sendemail'),
     url(r'^quantcast$', 'views.quantcast'),
     url(r'^zynga$', 'views.zynga'),
@@ -38,4 +30,6 @@ urlpatterns = [
     url(r'^HedvigInc$', TemplateView.as_view(template_name="home/hedviginc.html")),
     url(r'^CoreOS$', TemplateView.as_view(template_name="home/coreos.html")),
 
-]
+)
+
+

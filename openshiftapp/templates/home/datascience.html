@@ -1,0 +1,21 @@
+{% extends 'home/index.html' %}
+{% block customcontent %}
+<div class="md-modal md-show md-effect-1" id="modal-test">
+            <div class="md-content">
+                <h3>Why Hire me ?</h3>
+                <div>
+
+                    <p><strong>I believe I would be the best fit for the role of a Data Scientist</strong></p>
+                    <p><strong>Skill Set : Python, Javascript, Object oriented programming experience for 5 years, Experience in algorithms, machine learning using scikit-learn.</strong></p>
+
+                    <button onclick="document.getElementById('modal-test').classList.toggle('md-show');" class="md-close">Close me!</button>
+                </div>
+            </div>
+        </div>
+{% endblock customcontent %}
+{% block intro %}
+
+            <h1>Data <span>Scientist</span></h1>
+            <p> <br>A former Full Stack Developer with newly acquired skills, an insatiable intellectual curiosity, and the ability to mine hidden gems located within large sets of structured, semi-structured and unstructured data. Able to leverage a heavy dose of mathematics and applied statistics with visualization and a healthy sense of exploration.</p>
+        {% endblock intro %}
+
