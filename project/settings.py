@@ -42,8 +42,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'debug_toolbar',
-    'welcome',
     'openshiftapp',
 )
 
@@ -122,11 +120,11 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 if not ON_OPENSHIFT:
     STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, '..', 'static'),
+    os.path.join(BASE_DIR, 'static'),
     )
-    STATIC_ROOT = os.path.join(BASE_DIR, '..', 'static_root1')
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static_root1')
 else:
-    STATIC_ROOT = os.path.join(BASE_DIR, '..', 'static')
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
