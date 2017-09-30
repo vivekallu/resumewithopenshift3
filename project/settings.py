@@ -54,7 +54,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 )
 
 ROOT_URLCONF = 'project.urls'
@@ -108,7 +107,6 @@ ON_OPENSHIFT = False
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_PASSWORD = 'ldpku!23'
 EMAIL_HOST_USER = 'allu.vivek7@gmail.com'
